@@ -11,17 +11,61 @@
      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
      crossorigin=""></script>
     <title>Making Interactive Map</title>
-</head>
 <body>
 Hello World!
 <style>
-    #map {
-        height: 600px;
-        background-color: #ccc;
-    }
-</style>
-<div id="map"></div>
-<script src="app.js">
-</script> 
+        #map { 
+            height: 600px;
+            background-color: #ccc;
+        }
+        #map::before{
+            content: 'LOADING';
+            font-size: 4em;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            margin-top: 3em;
+        }
+        .leaflet-popup-content-wrapper {
+            width: 100%;
+        }
+   </style>
+        </head>
+        <form>
+            <select id="business">
+                <option value="restaurant">Restaurants</option>
+                <option value="coffee">Coffee Shops</option>
+                <option value="hotel">Hotels</option>
+                <option value="market">Markets</option>
+            </select>
+            <button id="submit">Submit</button>
+        </form>
+    <div id="map"></div> 
+<script src="app.js"></script>
 </body>
 </html>
+
+
+<!-- <p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    let result = navigator.geolocation.getCurrentPosition(showPosition)
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script> -->
